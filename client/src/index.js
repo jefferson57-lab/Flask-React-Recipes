@@ -1,47 +1,33 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/main.css'
-import React from 'react'
-import ReactDOM from 'react-dom'
+import './styles/main.css';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 import NavBar from './components/Navbar';
 
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route
-} from 'react-router-dom'
+} from 'react-router-dom';
 import HomePage from './components/Home';
 import SignUpPage from './components/SignUp';
 import LoginPage from './components/Login';
 import CreateRecipePage from './components/CreateRecipe';
 
-
-
-
-const App=()=>{
-
-    
-    return (
-        <Router>
-        <div className="">
-            <NavBar/>
-            <Switch>
-                <Route path="/create_recipe">
-                    <CreateRecipePage/>
-                </Route>
-                <Route path="/login">
-                    <LoginPage/>
-                </Route>
-                <Route path="/signup">
-                    <SignUpPage/>                
-                </Route>    
-                <Route path="/">
-                    <HomePage/>
-                </Route>
-            </Switch>
+const App = () => (
+    <Router>
+        <div>
+            <NavBar />
+            <Routes>
+                <Route path="/create_recipe" element={<CreateRecipePage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignUpPage />} />
+                <Route path="/" element={<HomePage />} />
+            </Routes>
         </div>
-        </Router>
-    )
-}
+    </Router>
+);
 
-
-ReactDOM.render(<App/>,document.getElementById('root'))
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App />);

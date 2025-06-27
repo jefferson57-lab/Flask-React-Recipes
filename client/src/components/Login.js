@@ -1,19 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {Form,Button} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {useForm} from 'react-hook-form'
-import { login } from '../auth'
-import {useHistory} from 'react-router-dom'
-
+import { login } from '../../../client/src/auth'
 
 const LoginPage=()=>{
     
-    const {register,handleSubmit,reset,formState:{errors}}=useForm()
+    const {register,handleSubmit,formState:{errors}}=useForm()
 
-    const history=useHistory()
+    const navigate = useNavigate()
     
-
-
     const loginUser=(data)=>{
        console.log(data)
 
@@ -33,18 +29,12 @@ const LoginPage=()=>{
            if (data){
             login(data.access_token)
 
-            history.push('/')
+            navigate('/')
            }
            else{
                alert('Invalid username or password')
            }
-
-
        })
-
-
-
-       reset()
     }
 
     return(

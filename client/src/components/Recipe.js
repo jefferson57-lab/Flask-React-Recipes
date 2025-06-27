@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Card ,Modal} from 'react-bootstrap';
-
+import { Button, Card } from 'react-bootstrap';
 
 const Recipe=({title,description,onClick,onDelete})=>{
     return(

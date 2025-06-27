@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useAuth ,logout} from '../auth'
-
-
-
+import { useAuth ,logout} from '../../../client/src/auth'
 
 const LoggedInLinks = () => {
     return (
@@ -15,7 +12,7 @@ const LoggedInLinks = () => {
                 <Link className="nav-link  active" to="/create_recipe">Create Recipes</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link active" href="#" onClick={()=>{logout()}}>Log Out</a>
+                <button className="nav-link active btn btn-link p-0 m-0 align-baseline" style={{color: 'inherit', background: 'none', border: 'none'}} onClick={()=>{logout()}}>Log Out</button>
             </li>
         </>
     )
