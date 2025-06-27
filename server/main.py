@@ -1,11 +1,11 @@
 from flask import Flask
 from flask_restx import Api
-from models import Recipe, User
-from exts import db
+from server.models import Recipe, User
+from server.exts import db
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
-from recipes import recipe_ns
-from auth import auth_ns
+from server.recipes import recipe_ns
+from server.auth import auth_ns
 from flask_cors import CORS
 
 

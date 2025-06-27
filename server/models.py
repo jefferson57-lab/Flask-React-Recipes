@@ -1,4 +1,4 @@
-from exts import db
+from server.exts import db
 
 
 """
