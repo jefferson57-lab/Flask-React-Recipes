@@ -2,7 +2,7 @@ import React from 'react'
 import {Form,Button} from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import {useForm} from 'react-hook-form'
-import { login } from '../../../client/src/auth'
+import { login } from '../auth'
 
 const LoginPage=()=>{
     
@@ -41,7 +41,7 @@ const LoginPage=()=>{
         <div className="container">
         <div className="form">
             <h1>Login Page</h1>
-            <form>
+            <form onSubmit={handleSubmit(loginUser)}>
                 <Form.Group>
                     <Form.Label>Username</Form.Label>
                     <Form.Control type="text"
@@ -60,13 +60,13 @@ const LoginPage=()=>{
                         {...register('password',{required:true,minLength:8})}
                     />
                 </Form.Group>
-                {errors.username && <p style={{color:'red'}}><small>Password is required</small></p>}
-                {errors.password?.type === "maxLength" && <p style={{color:'red'}}>
-                    <small>Password should be more than 8 characters</small>
-                    </p>}
+                {errors.password && <p style={{color:'red'}}><small>Password is required</small></p>}
+                {errors.password?.type === "minLength" && <p style={{color:'red'}}>
+    <small>Password should be more than 8 characters</small>
+</p>}
                 <br></br>
                 <Form.Group>
-                    <Button as="sub" variant="primary" onClick={handleSubmit(loginUser)}>Login</Button>
+                    <Button type="submit" variant="primary">Login</Button>
                 </Form.Group>
                 <br></br>
                 <Form.Group>

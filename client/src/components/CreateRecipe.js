@@ -125,9 +125,9 @@ const LoggedOutHome = () => (
     </div>
 );
 
-const HomePage = () => {
+const CreateRecipePage = () => {
     const [logged] = useAuth();
     return <div>{logged ? <LoggedinHome /> : <LoggedOutHome />}</div>;
 };
 
-export default HomePage;
+export default CreateRecipePage;
